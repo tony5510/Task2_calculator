@@ -1,0 +1,111 @@
+body {
+    background: linear-gradient(to bottom right, #ffffff, #5762ff);
+    height: 100vh;
+}
+
+.calc {
+    width: 350px;
+    height: 600px;
+    /* border: 1px solid #000; */
+    border-radius: 20px;
+    background: black;
+    color: white;
+    font-family: Arial;
+    padding: 18px;
+    box-shadow: 4px 4px 4px #4f4f4f;
+    margin: 50px auto;
+}
+
+.inputField {
+    width: 100%;
+    height: 140px;
+    display: grid;
+    justify-items: end;
+    align-items: end;
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 4rem;
+    text-align: right;
+    color: white;
+    outline: none;
+}
+
+.buttons {
+    display: grid;
+    grid-template-areas:
+    "copy copy bracketLeft bracketRight"
+    "ac ac delete division"
+    "seven eight nine mult"
+    "four five six minus"
+    "one two three plus"
+    "zero zero dot equal";
+    grid-gap: 7px;
+    justify-items: center;
+}
+
+.btn {  
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 70px;
+    font-size: 2rem;
+    cursor: pointer;
+    user-select: none;
+    background: rgb(22, 22, 22);
+}
+
+.btn.copy {
+    grid-area: copy;
+    width: 100%;
+    border-radius: 34px;
+}
+
+.btn.clearAll {
+    grid-area: ac;
+    width: 100%;
+    border-radius: 34px;
+}
+
+
+.btn.zero {
+    grid-area: zero;
+    width: 100%;
+    border-radius: 34px;
+}
+
+.btn:hover {
+    background-color: #616161;
+}
+
+.btn:active {
+    background-color: #3f3f3f;
+}
+
+.btn.equal {
+    background: #ff7433;
+}
+
+.btn.equal:hover {
+    background: #ff8850;
+}
+
+.btn.equal:active {
+    background: #dd652d;
+}
+
+.btn.orange {
+    color: #ff7433;
+}
+
+.btn.orange:hover {
+    color: #fd9e72;
+}
+
+.btn.grey {
+    color: #828282;
+}
+.btn.grey:hover {
+    color: #d3d3d3;
+}
