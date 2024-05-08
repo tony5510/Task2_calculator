@@ -1,23 +1,23 @@
 import isNumber from './isNumber.js'
 
 export default function splitIntoTokens(string) { 
-    let token = [];
+    let tokens = [];
     let currentNumber = '';
     string.split('').forEach((char) => { 
         if (isNumber(char) || char === '.') {
             currentNumber = currentNumber + char;
-        } else if ((char === '-') && (currentNumber === '') && ((token.length === 0) || (token[token.length-1] === '('))) {
-            token.push('0');
-            token.push(char);
+        } else if ((char === '-') && (currentNumber === '') && ((tokens.length === 0) || (tokens[tokens.length-1] === '('))) {
+            tokens.push('0');
+            tokens.push(char);
         } else {
-            if (currentNumber !== '') token.push(currentNumber) 
-            token.push(char);
+            if (currentNumber !== '') tokens.push(currentNumber) 
+            tokens.push(char);
             
             currentNumber = '';
         }
         
     });
     
-    if (currentNumber !== '') token.push(currentNumber);
-    return token;
+    if (currentNumber !== '') tokens.push(currentNumber);
+    return tokens;
 }

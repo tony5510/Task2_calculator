@@ -1,28 +1,27 @@
 import isNumber from './isNumber.js'
 import operationPriorities from './operationPriorities.js'
 
-export default function convertToRpn(token) {
-    const pToken = []
+export default function convertToRpn(tokens) {
+    const rpnTokens = []
     const stack = []
-
-    token.forEach(item => {
-        if(isNumber(item)) pToken.push(item)
-        else if (item === '(') stack.push(item)
-        else if (item === ')') {
+    tokens.forEach(token => {
+        if(isNumber(token)) rpnTokens.push(token)
+        else if (token === '(') stack.push(token)
+        else if (token === ')') {
             while(stack[stack.length - 1] !== '(') {
-                pToken.push(stack.pop())
+                rpnTokens.push(stack.pop())
             }
             stack.pop()
         } else {
-            while (operationPriorities[stack[stack.length - 1]] >= operationPriorities[item]) {
-                pToken.push(stack.pop())
+            while (operationPriorities[stack[stack.length - 1]] >= operationPriorities[token]) {
+                rpnTokens.push(stack.pop())
             }
-            stack.push(item)
+            stack.push(token)
         }
     })
     while (stack.length > 0) {
-        pToken.push(stack.pop())
+        rpnTokens.push(stack.pop())
     }
 
-    return pToken
+    return rpnTokens
 }

@@ -3,12 +3,12 @@ import convertToRpn from './convertToRpn.js'
 import isNumber from './isNumber.js'
 
 export default function calculator(expression) {
-    const token = splitIntoTokens(expression)
-    const pToken = convertToRpn(token)
+    const tokens = splitIntoTokens(expression)
+    const rpnTokens = convertToRpn(tokens)
     const stack = [];
     
     try {
-        pToken.forEach(token => {
+        rpnTokens.forEach(token => {
             if (isNumber(token)) { 
                 stack.push(parseFloat(token));
             } else { 
@@ -33,6 +33,7 @@ export default function calculator(expression) {
                 }
             }
         })
+
         if(isNumber(stack[0])) {
             return stack.pop(); 
         } else {
